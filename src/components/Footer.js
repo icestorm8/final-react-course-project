@@ -2,7 +2,7 @@ import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 export default function Footer() {
   return (
-    <footer className="pt-3 bg-secondary bg-gradient text-white text-center">
+    <footer className=" fixed-bottom pt-3 bg-secondary bg-gradient text-white text-center">
       {/* footer content will be here */}
       <div className="row">
         <div className="col-12 ">
@@ -28,7 +28,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="bg-dark">
+      <div className="row bg-dark">
         <p className="p-2">&copy; all rights reserved to shaked tamam</p>
       </div>
     </footer>
