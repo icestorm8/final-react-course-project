@@ -1,0 +1,4 @@
+/* changed hover state for nav-item bootstrap class */
+.nav-item:hover {
+  background-color: #313236 !important;
+}
