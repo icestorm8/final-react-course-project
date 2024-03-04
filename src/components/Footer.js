@@ -13,11 +13,16 @@ export default function Footer() {
       <div className="row">
         <div className="col-12 display-6 ">
           {/* github */}
-          <a className="icon-link p-3" href="#!" role="button">
+          <a
+            className="icon-link p-3"
+            target="_blank"
+            href="https://github.com/icestorm8"
+            role="button"
+          >
             <FaGithub className="text-white"></FaGithub>
           </a>
           {/* linkedin */}
-          <a className="icon-link p-3" href="#!" role="button">
+          <a className="icon-link p-3" target="_blank" href="#!" role="button">
             <FaLinkedin className="text-white"></FaLinkedin>
           </a>
         </div>
