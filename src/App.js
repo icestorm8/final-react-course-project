@@ -16,7 +16,7 @@ function App() {
       <Header className="" />
       {/* content here */}
 
-      <main className="flex-grow-1 ">
+      <main className="flex-grow-1 position-relative">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

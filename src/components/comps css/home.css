@@ -1,0 +1,12 @@
+.bg-image {
+  background-image: url("https://img.freepik.com/free-vector/watercolor-botanical-garden-background_23-2150230727.jpg");
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
