@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaSearch } from "react-icons/fa";
-export default function SearchBar() {
+export default function SearchBar(props) {
+  // function handleClick() {
+  //   props.setInput();
+  // }
+  function handleChange(e) {
+    props.setInput(e.target.value);
+  }
   return (
     <div className="input-group justify-content-center">
       <div className="form-outline" data-mdb-input-init>
         <input
+          onChange={handleChange}
           type="search"
           id="search"
           placeholder="search item here"
