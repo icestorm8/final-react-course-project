@@ -10,7 +10,6 @@ export default function Card(props) {
         alt={props.name}
       ></img>
       <h1 className="card-title h4 text-capitalize p-2">{props.dog.name}</h1>
-      {console.log(props.dog)}
     </div>
   );
 }

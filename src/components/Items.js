@@ -9,17 +9,35 @@ export default function Items() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true); // was data fetched?
   const [error, setError] = useState(null);
+  const [filteredData, setfilteredData] = useState([]);
 
   useEffect(() => {
     // listen to changes of state when function is called
     fetchData(setData, setLoading, setError);
   }, []);
 
+  // don't want to loose my data when searching
+  useEffect(() => {
+    setfilteredData(data);
+  }, [data]);
+
   // search logic
   const [searchTerm, setSearchTerm] = useState("");
+  // for checking changes in search term
   useEffect(() => {
     console.log(searchTerm);
+    if (searchTerm == "") {
+      setfilteredData(data);
+    } else {
+      setfilteredData(
+        data.filter(
+          (item) => item.name.toLowerCase() === searchTerm.toLowerCase()
+        )
+      );
+    }
+    // filter data
   }, [searchTerm]);
+
   return (
     <div>
       {loading ? (
@@ -31,11 +49,11 @@ export default function Items() {
       ) : (
         <>
           <div className="m-5">
-            <SearchBar setInput={setSearchTerm}></SearchBar>
+            <SearchBar setSearchTerm={setSearchTerm}></SearchBar>
           </div>
           <div className="container d-flex flex-wrap gap-4 justify-content-center p-2">
             {/* items here */}
-            {data.map((item, index) => (
+            {filteredData.map((item, index) => (
               <Card key={index} dog={item}></Card>
             ))}
           </div>
