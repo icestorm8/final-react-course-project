@@ -2,7 +2,8 @@ import React, { createContext } from "react";
 import SearchBar from "./SearchBar";
 import { useEffect, useState, useId } from "react";
 import Card from "./Card";
-import { fetchData } from "./functions/fetchData";
+import { fetchData } from "../functions/fetchData";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Items() {
   // fetch data logic
@@ -26,7 +27,7 @@ export default function Items() {
   // for checking changes in search term
   useEffect(() => {
     console.log(searchTerm);
-    if (searchTerm == "") {
+    if (searchTerm === "") {
       setfilteredData(data);
     } else {
       setfilteredData(
@@ -54,9 +55,12 @@ export default function Items() {
           <div className="container d-flex flex-wrap gap-4 justify-content-center p-2">
             {/* items here */}
             {filteredData.map((item, index) => (
-              <Card key={index} dog={item}></Card>
+              <Link to={`/items/${item.name}`}>
+                <Card key={index} dog={item}></Card>
+              </Link>
             ))}
           </div>
+          <Outlet />
         </>
       )}
     </div>

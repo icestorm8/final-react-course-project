@@ -9,6 +9,8 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Items from "./components/Items";
 import CreateItem from "./components/CreateItem";
+// component under items ->
+import Dog from "./components/Dog";
 
 function App() {
   return (
@@ -21,6 +23,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/items" element={<Items />} />
+          {/* if i use nested route here it's opens on the same page and i want it to open in as a different page */}
+          <Route path="/items/:dogName" element={<Dog />} />
+          {/* pass params of dog clicked*/}
           <Route path="/createitem" element={<CreateItem />} />
         </Routes>
       </main>
