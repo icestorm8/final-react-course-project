@@ -1,26 +1,26 @@
-import React, { createContext } from "react";
+import React, { createContext, useContext } from "react";
 import SearchBar from "./SearchBar";
 import { useEffect, useState, useId } from "react";
 import Card from "./Card";
 import { fetchData } from "../functions/fetchData";
 import { Link, Outlet } from "react-router-dom";
 
-export default function Items() {
+export default function Items(props) {
   // fetch data logic
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true); // was data fetched?
   const [error, setError] = useState(null);
   const [filteredData, setfilteredData] = useState([]);
 
   useEffect(() => {
     // listen to changes of state when function is called
-    fetchData(setData, setLoading, setError);
+    fetchData(props.setData, setLoading, setError);
   }, []);
 
   // don't want to loose my data when searching
   useEffect(() => {
-    setfilteredData(data);
-  }, [data]);
+    setfilteredData(props.data);
+  }, [props.data]);
 
   // search logic
   const [searchTerm, setSearchTerm] = useState("");
@@ -28,10 +28,10 @@ export default function Items() {
   useEffect(() => {
     console.log(searchTerm);
     if (searchTerm === "") {
-      setfilteredData(data);
+      setfilteredData(props.data);
     } else {
       setfilteredData(
-        data.filter(
+        props.data.filter(
           (item) => item.name.toLowerCase() === searchTerm.toLowerCase()
         )
       );

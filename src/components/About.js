@@ -8,15 +8,15 @@ export default function About() {
         <p>
           my name is shaked, i was asked to make this site/ react app as a final
           project for react course i took in Handesaim Ariel. This site will be
-          about edible plants. I chose this subject because in the past i
-          enjoyed being in the garden a lot, especialy enjoyd collecting seeds
-          of edible plants and growing them from 0.
+          about dogs. I chose this subject because i couldn't find any other
+          interesting api and it was a cute one. also, i like dogs.
         </p>
       </div>
       <div className="col-6 d-flex align-items-center">
         <img
           className="img-fluid rounded float-right"
-          src="https://hips.hearstapps.com/hmg-prod/images/close-up-of-cherry-tomatoes-growing-in-a-garden-royalty-free-image-543586990-1531260958.jpg?crop=1.00xw:1.00xh;0,0&resize=640:*"
+          src="https://media.cnn.com/api/v1/images/stellar/prod/191006152638-01-pets-and-our-health.jpg?q=w_2000,h_1125,x_0,y_0,c_fill/h_618"
+          alt="dog picture"
         ></img>
       </div>
     </div>
