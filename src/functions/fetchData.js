@@ -4,7 +4,7 @@ const options = {
   method: "GET",
   headers: { "X-Api-Key": key },
 };
-export var DogArray = [];
+export var DogArray = null;
 
 // export const fetchData = async (setData, setLoading, setError) => {
 //   // fetch data from the api
