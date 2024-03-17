@@ -11,7 +11,8 @@ import Items from "./components/Items";
 import CreateItem from "./components/CreateItem";
 import { DogArray } from "./functions/fetchData";
 // component under items ->
-import Dog from "./components/Dog";
+import Dog from "./components/DogDetail";
+import Edit from "./components/Edit";
 // page not found component
 import PageNotFound from "./components/PageNotFound";
 import { useState } from "react";
@@ -28,17 +29,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
 
-          <Route
-            path="/items"
-            //  setData={setData} data={data}
-            element={<Items />}
-          />
+          <Route path="/items" element={<Items />} />
           {/* if i use nested route here it's opens on the same page and i want it to open in as a different page */}
-          <Route
-            // setData={setData} data={data} />
-            path="/items/:dogName"
-            element={<Dog />}
-          />
+          <Route path="/items/:dogName" element={<Dog />} />
+          {/* edit a specific dog */}
+          <Route path="/items/:dogName/editDog" element={<Edit />} />
           {/* pass params of dog clicked*/}
           <Route path="/createitem" element={<CreateItem />} />
 

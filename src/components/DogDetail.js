@@ -27,12 +27,15 @@ export default function Dog() {
               className="btn btn-danger"
               onClick={() => {
                 deleteDog(params.dogName);
-                navigate("/Items");
+                navigate("/items"); // instead of history
               }}
             >
               DELETE
             </button>
-            <button className="btn btn-info">EDIT</button>
+            {/* without using / before it addes to what's currently there */}
+            <Link to={`editDog`} className="btn btn-info">
+              EDIT
+            </Link>
           </div>
           {/* dog extended info */}
           <h1 className="display-4 ">{dog.name}</h1>

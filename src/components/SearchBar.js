@@ -35,7 +35,7 @@ export default function SearchBar(props) {
         <FaSearch />
       </button>
       <button className="btn btn-outline-primary" onClick={resetSearch}>
-        cancle
+        cancel
       </button>
     </div>
   );
