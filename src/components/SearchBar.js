@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 export default function SearchBar(props) {
   const [input, setInput] = useState("");
@@ -8,6 +8,13 @@ export default function SearchBar(props) {
   function handleChange(e) {
     setInput(e.target.value);
   }
+
+  function resetSearch() {
+    props.setSearchTerm("");
+    document.getElementById("search").value = "";
+    setInput("");
+  }
+
   return (
     <div className="input-group justify-content-center">
       <div className="form-outline" data-mdb-input-init>
@@ -26,6 +33,9 @@ export default function SearchBar(props) {
         onClick={handleClick}
       >
         <FaSearch />
+      </button>
+      <button className="btn btn-outline-primary" onClick={resetSearch}>
+        cancle
       </button>
     </div>
   );

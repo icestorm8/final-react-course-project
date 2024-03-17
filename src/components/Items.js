@@ -5,6 +5,7 @@ import Card from "./Card";
 
 import { Link, Outlet } from "react-router-dom";
 import { DogArray } from "../functions/fetchData";
+import { Button } from "bootstrap";
 
 export default function Items() {
   // fetch data logic
@@ -12,20 +13,17 @@ export default function Items() {
   const [loading, setLoading] = useState(DogArray == null); // was data fetched?
 
   const [filteredData, setfilteredData] = useState(DogArray);
-  var hasData = DogArray == null || DogArray?.length > 0; // check if the array we got has items
+  var hasData = DogArray != null || DogArray?.length > 0; // check if the array we got has items
   const [hasSearchResults, setHasSearchResults] = useState(true);
 
   useEffect(() => {
     setLoading(DogArray.length == null);
   }, [loading]);
-  // useEffect(() => {
-  //   // listen to changes of state when function is called
-  //   fetchData(props.setData, setLoading, setError);
-  // }, []);
 
   useEffect(() => {
     setHasSearchResults(filteredData.length > 0);
   });
+
   // search logic
   const [searchTerm, setSearchTerm] = useState("");
   // for checking changes in search term
