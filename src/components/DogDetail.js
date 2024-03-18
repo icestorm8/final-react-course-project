@@ -1,8 +1,9 @@
 import { React, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, Navigate } from "react-router-dom";
 import { DogArray, setDogArray } from "../functions/fetchData";
 
 import { useNavigate } from "react-router-dom";
+import PageNotFound from "./PageNotFound";
 
 function deleteDog(dogName) {
   setDogArray(DogArray.filter((dog) => dog.name !== dogName));
@@ -14,8 +15,14 @@ export default function Dog() {
   // search for specific dog by it's name in the doglist data array
   var dog = DogArray.find((dog) => dog.name == params.dogName);
 
-  console.log(dog);
   const navigate = useNavigate();
+  if (!dog) {
+    // Redirect to the items page if the dog is not found
+    return <PageNotFound />;
+  } else {
+    console.log(dog);
+  }
+
   return (
     <div>
       <div className="container-fluid p-5 d-flex flex-row gap-4 ">
@@ -27,6 +34,7 @@ export default function Dog() {
               className="btn btn-danger"
               onClick={() => {
                 deleteDog(params.dogName);
+
                 navigate("/items"); // instead of history
               }}
             >

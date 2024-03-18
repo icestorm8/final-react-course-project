@@ -31,12 +31,14 @@ function App() {
           {/* if i use nested route here it's opens on the same page and i want it to open in as a different page */}
           <Route path="/items/createItem" element={<CreateItem />} />
           <Route path="/items/:dogName" element={<Dog />} />
+          
           {/* edit a specific dog */}
           <Route path="/items/:dogName/editDog" element={<Edit />} />
           {/* pass params of dog clicked*/}
           {/* <Route path="/createitem" element={<CreateItem />} />  should be inside items by instructions*/}
 
           <Route path="*" element={<PageNotFound />} />
+          
         </Routes>
       </main>
 
