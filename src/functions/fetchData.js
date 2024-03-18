@@ -31,20 +31,12 @@ export const fetchData = async () => {
     const data = await response.json(); // json, not text - i need it to be an array- not a string
     return data;
   } catch (error) {
-    console.log("error");
+    console.log("error - " + error);
     return null;
   }
 };
 DogArray = await fetchData(); // try to save the dog array here and export from app!!
-
+console.log(DogArray);
 export function setDogArray(newDogArray) {
   DogArray = newDogArray;
 }
-// export const setCache = (key, value)=>{
-//   localStorage.setItem(key, value);
-// }
-
-// export const getCache = (key)=>{
-//   const v = localStorage.getItem(key);
-//   return v;
-// }

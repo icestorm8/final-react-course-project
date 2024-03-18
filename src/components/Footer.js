@@ -21,7 +21,12 @@ export default function Footer() {
             <FaGithub className="text-white"></FaGithub>
           </a>
           {/* linkedin */}
-          <a className="icon-link p-3" target="_blank" href="#!" role="button">
+          <a
+            className="icon-link p-3"
+            target="_blank"
+            href="https://www.linkedin.com/in/shaked-tamam-0780b42ab/"
+            role="button"
+          >
             <FaLinkedin className="text-white"></FaLinkedin>
           </a>
         </div>

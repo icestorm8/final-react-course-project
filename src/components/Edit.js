@@ -10,16 +10,10 @@ export default function Edit() {
   const navigate = useNavigate(); // navigate
   var [copy, setCopy] = useState(structuredClone(dog));
   var [isChanged, setIsChanged] = useState(false);
-  // var [isNameChanged, setIsNameChanged] = useState(false);
   async function handleChange(e, keyName) {
-    // if (keyName === "name") {
-    //   setIsNameChanged(true); // in case name was changed - page routing should be changed as well after submit
-    // }
     await setIsChanged(true);
     console.log(`change was made in ${e.target.name}`); // check were change was made
     await setCopy({ ...copy, [keyName]: e.target.value });
-    // copy[keyName] = await e.target.value;
-    // console.log(copy[keyName]);
   }
 
   function cancel() {
@@ -60,9 +54,6 @@ export default function Edit() {
       <form className="container d-flex flex-column p-3">
         {/* displaying as input fields all keys and values except for name and image url */}
         {Object.keys(dog).map((keyName, index) => (
-          // keyName === "image_link" || keyName === "name" ? (
-          //   <></>
-          // ) :
           <div className="input-group mb-3 " key={index}>
             <div className="input-group-prepend">
               <span className="btn btn-info">
@@ -89,18 +80,7 @@ export default function Edit() {
             />
           </div>
         ))}
-        {/* <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="btn btn-info">image_link</span>
-          </div>
-          <input
-            type="url"
-            name="image_link"
-            className="form-control"
-            placeholder={dog.image_link}
-            onChange={(e) => handleChange(e, "image_link")}
-          ></input>
-        </div> */}
+
         <div className="btn-group">
           <button className="btn btn-danger" onClick={cancel}>
             cancel
