@@ -1,3 +1,3 @@
-# edible plants app (for now)
+# dogs app (using dogs api)
 
     used bootstrap

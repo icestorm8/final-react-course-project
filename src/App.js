@@ -9,16 +9,14 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Items from "./components/Items";
 import CreateItem from "./components/CreateItem";
-import { DogArray } from "./functions/fetchData";
+
 // component under items ->
 import Dog from "./components/DogDetail";
 import Edit from "./components/Edit";
 // page not found component
 import PageNotFound from "./components/PageNotFound";
-import { useState } from "react";
 
 function App() {
-  var [data, setData] = useState(DogArray);
   return (
     <div className="App d-flex flex-column min-vh-100">
       <Header className="" />
@@ -31,11 +29,12 @@ function App() {
 
           <Route path="/items" element={<Items />} />
           {/* if i use nested route here it's opens on the same page and i want it to open in as a different page */}
+          <Route path="/items/createItem" element={<CreateItem />} />
           <Route path="/items/:dogName" element={<Dog />} />
           {/* edit a specific dog */}
           <Route path="/items/:dogName/editDog" element={<Edit />} />
           {/* pass params of dog clicked*/}
-          <Route path="/createitem" element={<CreateItem />} />
+          {/* <Route path="/createitem" element={<CreateItem />} />  should be inside items by instructions*/}
 
           <Route path="*" element={<PageNotFound />} />
         </Routes>

@@ -16,9 +16,9 @@ export default function NavBar() {
         <Link to="/items" className="nav-link nav-item text-light">
           Items
         </Link>
-        <Link to="/createitem" className="nav-link nav-item text-light">
+        {/* <Link to="/createitem" className="nav-link nav-item text-light">
           Create Item
-        </Link>
+        </Link> */}
       </nav>
       {/* used within the parent route element to indicate where a child route element should be rendered */}
       <Outlet />

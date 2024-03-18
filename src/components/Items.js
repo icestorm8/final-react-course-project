@@ -53,6 +53,12 @@ export default function Items() {
             <>
               <div className="m-5">
                 <SearchBar setSearchTerm={setSearchTerm}></SearchBar>
+                <Link
+                  to="/items/createItem"
+                  className="btn btn-primary position-absolute top-0 end-0 m-4"
+                >
+                  Create Item
+                </Link>
               </div>
               {hasSearchResults && hasData ? (
                 <div className="container d-flex flex-wrap gap-4 justify-content-center p-2">

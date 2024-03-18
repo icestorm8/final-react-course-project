@@ -16,7 +16,7 @@ export default function SearchBar(props) {
   }
 
   return (
-    <div className="input-group justify-content-center">
+    <div className="input-group  justify-content-center">
       <div className="form-outline" data-mdb-input-init>
         <input
           onChange={handleChange}
