@@ -49,18 +49,18 @@ This project is open source.
 > throughout the app the header and footer are visible, those include navbar and links to my github and linkedin, be sure to check those :&#41;
 
 - home page
-  ![alt text](image.png)
+  ![alt text](readmePictures/image.png)
 
   > includes a link directing to items
 
 - about page
-  ![alt text](./src/readmePictures/image-1.png)
+  ![alt text](readmePictures/image-1.png)
 
 - items page
-  ![alt text](./src/readmePictures/image-2.png)
+  ![alt text](readmePictures/image-2.png)
 
   - in case of not having data (problem in fetching/ api response)
-    ![alt text](./src/readmePictures/image-3.png)
+    ![alt text](readmePictures/image-3.png)
     > search bar is hidden and no data will be shown
 
 - search in items
@@ -70,20 +70,20 @@ This project is open source.
   > only if search term matches perfectlly to an item it will be shown!
 
   - searching (when there is a result)
-    ![alt text](./src/readmePictures/image-4.png)
+    ![alt text](readmePictures/image-4.png)
 
   - searching (when no data matched the search)
-    ![alt text](./src/readmePictures/image-5.png)
+    ![alt text](readmePictures/image-5.png)
     > make sure to cancel the search!
 
 - viewing an item (by clicking on it)
-  ![alt text](./src/readmePictures/image-6.png)
+  ![alt text](readmePictures/image-6.png)
 
   #### has 2 options inside:
 
   - editing an item (done only from item's page)
-    ![alt text](./src/readmePictures/image-7.png)
-    ![alt text](./src/readmePictures/image-8.png)
+    ![alt text](readmePictures/image-7.png)
+    ![alt text](readmePictures/image-8.png)
 
     > there are 2 options - submiting the form and saving the changes (if you made changes) or canceling changes made in form. both will close edit mode and display the dog's detailed profile.
 
@@ -91,18 +91,18 @@ This project is open source.
     here is an example of deleting "akita" from the list:
     | before | after |
     | :---: | :---: |
-    | ![alt text](./src/readmePictures/image-12.png) | ![alt text](./src/readmePictures/image-11.png) |
+    | ![alt text](readmePictures/image-12.png) | ![alt text](readmePictures/image-11.png) |
 
 - creating an item (from items page, was on navbar before)
-  ![alt text](./src/readmePictures/image-15.png)
+  ![alt text](readmePictures/image-15.png)
   here is an example of adding new dog to the list:
   | before | after |
   | :---: | :---: |
-  | ![alt text](./src/readmePictures/image-14.png) | ![alt text](./src/readmePictures/image-13.png) |
+  | ![alt text](readmePictures/image-14.png) | ![alt text](readmePictures/image-13.png) |
 
 ### when having an error fetching from the api :
 
-![alt text](./src/readmePictures/image-9.png)
+![alt text](readmePictures/image-9.png)
 
 - desided to not allow any addition of new items (redirecting back to items if there is an error)
 - edit dog and view dog are taken care of and cannot be viewed (Redirecting and page not found(in case of searching for a dog name that doesn't exist))
