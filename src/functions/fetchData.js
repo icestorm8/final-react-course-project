@@ -5,7 +5,7 @@ const options = {
   headers: { "X-Api-Key": key },
 };
 export var DogArray = null;
-
+export var hasError = false;
 // export const fetchData = async (setData, setLoading, setError) => {
 //   // fetch data from the api
 //   // if there was an error during response to json display the error
@@ -26,13 +26,21 @@ export var DogArray = null;
 
 export const fetchData = async () => {
   try {
-    DogArray = [];
     const response = await fetch(url, options);
     const data = await response.json(); // json, not text - i need it to be an array- not a string
+    // if (data instanceof Array) {
+    //   return data;
+    // } else {
+    //   return "there was an error fetching from api, please contact creator";
+    // }
+    if (!response.ok) {
+      hasError = true;
+      throw new Error("Error fetching data");
+    }
     return data;
   } catch (error) {
     console.log("error - " + error);
-    return null;
+    return []; // or null
   }
 };
 DogArray = await fetchData(); // try to save the dog array here and export from app!!

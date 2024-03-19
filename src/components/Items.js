@@ -1,10 +1,10 @@
 import React, { createContext, useContext } from "react";
 import SearchBar from "./SearchBar";
-import { useEffect, useState, useId } from "react";
+import { useEffect, useState } from "react";
 import Card from "./Card";
 
 import { Link, Outlet } from "react-router-dom";
-import { DogArray } from "../functions/fetchData";
+import { DogArray, hasError } from "../functions/fetchData";
 
 export default function Items() {
   // display fetched data
@@ -18,13 +18,13 @@ export default function Items() {
     if (hasData) {
       setHasSearchResults(filteredData.length > 0);
     }
-  }, [hasSearchResults]);
+  }, [filteredData]);
 
   // search logic
   const [searchTerm, setSearchTerm] = useState("");
   // for checking changes in search term
   useEffect(() => {
-    console.log(searchTerm);
+    // console.log(searchTerm);
     if (searchTerm === "") {
       setfilteredData(DogArray);
     } else {
@@ -36,7 +36,7 @@ export default function Items() {
     }
     // filter data
   }, [searchTerm]);
-  console.log(typeof DogArray);
+  // console.log(typeof DogArray);
   return (
     <div>
       {hasData ? (
@@ -55,8 +55,8 @@ export default function Items() {
               {/* items here */}
 
               {filteredData.map((item, index) => (
-                <Link to={`/items/${item.name}`}>
-                  <Card key={index} dog={item}></Card>
+                <Link to={`/items/${item.name}`} key={index}>
+                  <Card dog={item}></Card>
                 </Link>
               ))}
               <Outlet />
@@ -67,8 +67,17 @@ export default function Items() {
             </h1>
           )}
         </>
+      ) : hasError ? (
+        <p className="lead text-center p-3 m-4 bg-danger text-white">
+          there was an error fetching from the api, please content the creator
+        </p>
       ) : (
-        <h1 className="text-center display-4">no data to show</h1>
+        <div className="d-flex flex-column justify-content-center">
+          <h1 className="text-center display-4">no data to show</h1>
+          <Link to="/items/createItem" className="btn btn-primary m-4">
+            Create Item
+          </Link>
+        </div>
       )}
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { DogArray, setDogArray } from "../functions/fetchData";
+import { DogArray, setDogArray, hasError } from "../functions/fetchData";
+import { Navigate } from "react-router-dom";
 
 const initDogState = {
   image_link: "",
@@ -29,13 +30,16 @@ const initDogState = {
 };
 
 export default function CreateItem() {
-  // since ill be here only when having at least one item fetched to my array from the api, i want to use this item's keys to create a new item
-  // so i wouldn't miss any fields
   var [dog, setDog] = useState(initDogState);
+  if (hasError) {
+    // if has problem with the api fetching - don't allow creation of new items
+    console.log("access denied");
+    return <Navigate to="/items"></Navigate>;
+  }
 
-  useEffect(() => {
-    console.log(dog); // to check changes
-  }, [dog]);
+  // useEffect(() => {
+  //   console.log(dog); // to check changes
+  // }, [dog]);
 
   function handleSumbit(event) {
     event.preventDefault(); // prevent reloading of page
@@ -48,7 +52,7 @@ export default function CreateItem() {
     alert("dog added to list");
     // console.log(dog);
   }
-  console.log(DogArray[0]);
+  // console.log(DogArray[0]);
   return (
     <div className="container">
       <h1 className="display-4">create new dog item</h1>
@@ -57,7 +61,7 @@ export default function CreateItem() {
           handleSumbit(event);
         }}
       >
-        {Object.keys(DogArray[0]).map((keyName, index) => (
+        {Object.keys(dog).map((keyName, index) => (
           <div className="input-group mb-3 " key={index}>
             <div className="input-group-prepend">
               <span className="btn btn-info">
@@ -84,7 +88,13 @@ export default function CreateItem() {
               required
               name={keyName}
               className="form-control "
-              placeholder={"for example " + DogArray[0][keyName]}
+              placeholder={
+                keyName === "name"
+                  ? "for example - labrador"
+                  : keyName === "image_link"
+                  ? "for example https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Labrador_Retriever_portrait.jpg/1200px-Labrador_Retriever_portrait.jpg"
+                  : "enter a number here"
+              }
             />
           </div>
         ))}
