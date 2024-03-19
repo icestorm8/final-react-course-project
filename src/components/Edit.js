@@ -76,7 +76,8 @@ export default function Edit() {
                   ? "url"
                   : "number"
               }
-              min={1}
+              step="any"
+              min={0}
               minLength={1}
               defaultValue={keyName == "image_link" ? "" : dog[keyName]}
               name={keyName}
